@@ -1,0 +1,15 @@
+# Remix Application
+
+node_modules
+
+application/.cache
+application/build
+application/public/build
+application/app/app.css
+.env
+
+# end Remix Application
+# ######################### #
+# Docker
+
+# end Docker

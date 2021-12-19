@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  remixaboutme:
+    image: remixaboutme
+    build:
+      context: application
+      dockerfile: ../docker/npm/Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 3000:3000
+      - 9229:9229
+    command: ["node", "--inspect=0.0.0.0:9229", "index.js"]
+    volumes:
+      - ./application:usr/src/app
+  mongodb:
+    image: mongo:5.0.5
+    ports:
+      - 27017:27017
+    volumes:
+      - data:/data/db
+
+volumes:
+  data:
