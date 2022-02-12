@@ -16,6 +16,7 @@ RUN npm install --production=false
 # RUN npx prisma generate
 
 ADD . .
-RUN npm run build
+RUN npm run build_dev
+ENV NODE_ENV=production
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "start_dev"]
