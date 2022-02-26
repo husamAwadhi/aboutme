@@ -11,6 +11,9 @@ services:
     ports:
       - 3000:3000
       - 8002:8002
+    expose:
+      - 3000
+      - 8002
     volumes:
       - ./application:/app
   redis:

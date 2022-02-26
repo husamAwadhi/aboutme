@@ -8,15 +8,9 @@ RUN apk upgrade --update-cache --available && \
 
 WORKDIR /app
 
-ADD package.json package-lock.json ./
-RUN npm install --production=false
-
 # If we're using Prisma, uncomment to cache the prisma schema
 # ADD prisma .
 # RUN npx prisma generate
 
-ADD . .
-RUN npm run build_dev
-ENV NODE_ENV=production
-
-CMD ["npm", "run", "start_dev"]
+CMD npm install && \
+    npm run dev
