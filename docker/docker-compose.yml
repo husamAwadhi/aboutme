@@ -1,13 +1,13 @@
 version: '3.4'
 
 services:
-  remixaboutme:
-    image: remixaboutme
+  remix:
+    image: remix
     build:
-      context: application
+      context: ../application
       dockerfile: ../docker/npm/Dockerfile
     environment:
-      NODE_ENV: development
+      NODE_ENV: production
     ports:
       - 3000:3000
       - 8002:8002
@@ -15,7 +15,7 @@ services:
       - 3000
       - 8002
     volumes:
-      - ./application:/app
+      - ./../application:/app
   redis:
     image: "redis:6.2.6-alpine3.15"
     container_name: db

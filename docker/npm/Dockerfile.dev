@@ -12,6 +12,5 @@ WORKDIR /app
 # ADD prisma .
 # RUN npx prisma generate
 
-CMD npm install --production && \
-    npm run build && \
-    npm run start
+CMD npm install && \
+    npm run dev

@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  remix:
+    image: remix_dev
+    build:
+      context: ../application
+      dockerfile: ../docker/npm/Dockerfile.dev
+    environment:
+      NODE_ENV: development
+    ports:
+      - 3000:3000
+      - 8002:8002
+    expose:
+      - 3000
+      - 8002
+    volumes:
+      - ./../application:/app
+  redis:
+    image: "redis:6.2.6-alpine3.15"
+    container_name: db_dev
+    ports:
+      - "6379:6379"
+    expose:
+      - 6379
+    restart: always
